@@ -1,86 +1,49 @@
 ---
 title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes'
+description: 'Follow these instructions to quickly implement a Datopus web tracker with default configuration.'
 ---
 
-## Setup your development
+Getting started with sending events using the JavaScript tracker is very similar to other web analytics vendors like Google Analytics, Adobe Analytics, etc.
 
-Learn how to update your docs locally and deploy them to the public.
+The process involves the following high level steps:
 
-### Edit and preview
+#### Adding the tag snippet
+Add the tag snippet below to your site, to all the pages you'd like to track
 
-<AccordionGroup>
-  <Accordion icon="github" title="Clone your docs locally">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
-  </Accordion>
-  <Accordion icon="rectangle-terminal" title="Preview changes">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally. 1. Install the
-    [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-    documentation changes locally with this command: ``` npm i -g mintlify ```
-    2. Run the following command at the root of your documentation (where
-    `mint.json` is): ``` mintlify dev ```
-  </Accordion>
-</AccordionGroup>
+<Tip>
+Place the tag directly into your codebase. Typically this will be placed into the `<head>` element of your page or in a similar, suitable, location if using a Single Page Application framework.
+</Tip>
 
-### Deploy your changes
+```javascript javascript
+;((d,a,t,o,p,u,s)=>{if(!d[p]){let e=p+":sourceFeature";d.GlobalDatopusNamespace=d.GlobalDatopusNamespace||[],d.GlobalDatopusNamespace.push(p),d[p]=function(){"trackFeature"===arguments[0]&&(arguments.length<3&&arguments.push({}),arguments[2].sourceFeature=t.getItem(e),t.setItem(e,arguments[1].feature)),(d[p].q=d[p].q||[]).push(arguments)},d[p].q=d[p].q||[],u=a.createElement("script"),s=a.getElementsByTagName("script")[0],u.async=1,u.src="//{{url}}/ds.min.js",s.parentNode.insertBefore(u,s)}})(window,document,localStorage,0,"datopus");
+```
 
-<AccordionGroup>
+#### Configuring a tracker
+Configure an instance of the tracker by calling `newTracker` with your desired properties
 
-<Accordion icon="message-bot" title="Install our Github app">
-  Our Github app automatically deploys your changes to your docs site, so you
-  don't need to manage deployments yourself. You can find the link to install on
-  your [dashboard](https://dashboard.mintlify.com). Once the bot has been
-  successfully installed, there should be a check mark next to the commit hash
-  of the repo.
-</Accordion>
-<Accordion icon="rocket" title="Push your changes">
-  [Commit and push your changes to
-  Git](https://docs.github.com/en/get-started/using-git/pushing-commits-to-a-remote-repository#about-git-push)
-  for your changes to update in your docs site. If you push and don't see that
-  the Github app successfully deployed your changes, you can also manually
-  update your docs through our [dashboard](https://dashboard.mintlify.com).
-</Accordion>
+```javascript javascript
+window.datopus('newTracker', 'www.tracked_domain.com')
+```
 
-</AccordionGroup>
+where `www.tracked_domain.com` is one of domains you specified in the Datopus Dashboard.
 
-## Update your docs
+<Tip>Tip for B2B: instead of hardcoding a domain name, obtain it from a browser variable `window.location.hostname`</Tip>
 
-Add content directly in your files with MDX syntax and React components. You can use any of our components, or even build your own.
+#### Tracking a feature
+Use the track method `trackFeature` to register activity on a feature
 
-<CardGroup>
+	- For example, you can register engagement on feature `CTA: Add To Cart` with next code
 
-<Card title="Style Your Docs" icon="paintbrush" href="/settings/global">
-  Add flair to your docs with personalized branding.
-</Card>
+	```javascript javascript
+	window.datopus('trackFeature', 'CTA: Add To Cart');
+	```
 
-<Card
-  title="Add API Endpoints"
-  icon="square-code"
-  href="/api-playground/configuration"
->
-  Implement your OpenAPI spec and enable API user interaction.
-</Card>
+	- Or, you can add some context
 
-<Card
-  title="Integrate Analytics"
-  icon="chart-mixed"
-  href="/analytics/supported-integrations"
->
-  Draw insights from user interactions with your documentation.
-</Card>
-
-<Card
-  title="Host on a Custom Domain"
-  icon="browser"
-  href="/settings/custom-domain/subdomain"
->
-  Keep your docs on your own website's subdomain.
-</Card>
-
-</CardGroup>
+	```javascript javascript
+	window.datopus('trackFeature', 'CTA: Add To Cart', {
+		user_subscription: 'Premium',
+		product_name: 'Product A',
+		product_category: 'Category B'
+	});
+	```
