@@ -7,19 +7,19 @@ Getting started with sending events using the JavaScript tracker is very similar
 
 The process involves the following high level steps:
 
-#### Adding the tag snippet
-Add the tag snippet below to your site, to all the pages you'd like to track
+#### Adding the code snippet
+Add the code snippet below to your site, to all the pages you'd like to track.
 
 <Tip>
-Place the tag directly into your codebase. Typically this will be placed into the `<head>` element of your page or in a similar, suitable, location if using a Single Page Application framework.
+Place the code snippet directly into your codebase. Typically this will be wrapped with `<script>` and placed into the `<head>` element of your page or in a similar suitable location if using a Single Page Application framework.
 </Tip>
 
 ```javascript javascript
-;((d,a,t,o,p,u,s)=>{if(!d[p]){let e=p+":sourceFeature";d.GlobalDatopusNamespace=d.GlobalDatopusNamespace||[],d.GlobalDatopusNamespace.push(p),d[p]=function(){"trackFeature"===arguments[0]&&(arguments.length<3&&arguments.push({}),arguments[2].sourceFeature=t.getItem(e),t.setItem(e,arguments[1].feature)),(d[p].q=d[p].q||[]).push(arguments)},d[p].q=d[p].q||[],u=a.createElement("script"),s=a.getElementsByTagName("script")[0],u.async=1,u.src="https://datopus.blob.core.windows.net/scripts/ds.min.js",s.parentNode.insertBefore(u,s)}})(window,document,localStorage,0,"datopus");
+((d,a,t,o,p,u,s)=>{if(!d[p]){let e=p+":sourceFeature";d.GlobalDatopusNamespace=d.GlobalDatopusNamespace||[],d.GlobalDatopusNamespace.push(p),d[p]=function(){"trackFeature"===arguments[0]&&(arguments.length<3&&arguments.push({}),arguments[2].sourceFeature=t.getItem(e)||"",t.setItem(e,arguments[1].feature)),(d[p].q=d[p].q||[]).push(arguments)},d[p].q=d[p].q||[],u=a.createElement("script"),s=a.getElementsByTagName("script")[0],u.async=1,u.src="https://datopus.blob.core.windows.net/scripts/ds.min.js",s.parentNode.insertBefore(u,s)}})(window,document,localStorage,0,"datopus");
 ```
 
 #### Configuring a tracker
-Configure an instance of the tracker by calling `newTracker` with your desired properties
+Configure an instance of the tracker by calling `newTracker` with your desired properties.
 
 ```javascript javascript
 window.datopus('newTracker', 'www.tracked_domain.com')
@@ -30,7 +30,7 @@ where `www.tracked_domain.com` is one of domains you specified in the Datopus Da
 <Tip>Tip for B2B: instead of hardcoding a domain name, obtain it from a browser variable `window.location.hostname`</Tip>
 
 #### Tracking a feature
-Use the track method `trackFeature` to register activity on a feature
+Use the track method `trackFeature` to register activity on a feature.
 
 	- For example, you can register engagement on feature `CTA: Add To Cart` with next code
 
