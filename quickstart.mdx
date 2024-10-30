@@ -15,7 +15,7 @@ Place the code snippet directly into your codebase. Typically this will be wrapp
 </Tip>
 
 ```javascript javascript
-((d,a,t,o,p,u,s)=>{if(!d[p]){let e=p+":sourceFeature";d.GlobalDatopusNamespace=d.GlobalDatopusNamespace||[],d.GlobalDatopusNamespace.push(p),d[p]=function(){"trackFeature"===arguments[0]&&(arguments.length<3&&(arguments[2]={}),arguments[2].sourceFeature=t.getItem(e)||"",t.setItem(e,arguments[1].feature)),(d[p].q=d[p].q||[]).push(arguments)},d[p].q=d[p].q||[],u=a.createElement("script"),s=a.getElementsByTagName("script")[0],u.async=1,u.src="https://datopus.blob.core.windows.net/scripts/ds.min.js",s.parentNode.insertBefore(u,s)}})(window,document,localStorage,0,"datopus");
+((d,a,t,o,p,u,s)=>{if(!d[p]){let e=p+":sourceFeature";d.GlobalDatopusNamespace=d.GlobalDatopusNamespace||[],d.GlobalDatopusNamespace.push(p),d[p]=function(){"trackFeature"===arguments[0]&&(arguments.length<3&&Array.prototype.push.call(arguments,{}),arguments[2].sourceFeature=t.getItem(e)||"",t.setItem(e,arguments[1].feature)),(d[p].q=d[p].q||[]).push(arguments)},d[p].q=d[p].q||[],u=a.createElement("script"),s=a.getElementsByTagName("script")[0],u.async=1,u.src="https://datopus.blob.core.windows.net/scripts/ds.min.js",s.parentNode.insertBefore(u,s)}})(window,document,localStorage,0,"datopus");
 ```
 
 #### Configuring a tracker
