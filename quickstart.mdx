@@ -14,14 +14,14 @@ Add the code snippet below to your site, to all the pages you'd like to track.
 Place the code snippet directly into your codebase. Typically this will be wrapped with `<script>` and placed into the `<head>` element of your page or in a similar suitable location if using a Single Page Application framework.
 </Tip>
 
-```javascript javascript
-((d,a,t,o,p,u,s)=>{if(!d[p]){let e=p+":sourceFeature";d.GlobalDatopusNamespace=d.GlobalDatopusNamespace||[],d.GlobalDatopusNamespace.push(p),d[p]=function(){"trackFeature"===arguments[0]&&(arguments.length<3&&Array.prototype.push.call(arguments,{}),arguments[2].sourceFeature=t.getItem(e)||"",t.setItem(e,arguments[1].feature)),(d[p].q=d[p].q||[]).push(arguments)},d[p].q=d[p].q||[],u=a.createElement("script"),s=a.getElementsByTagName("script")[0],u.async=1,u.src="https://datopus.blob.core.windows.net/scripts/ds.min.js",s.parentNode.insertBefore(u,s)}})(window,document,localStorage,0,"datopus");
+```javascript JS
+((d,a,t,o,p,u,s)=>{if(!d[p]){let e=p+":sourceFeature";t.setItem(e,""),d.GlobalDatopusNamespace=d.GlobalDatopusNamespace||[],d.GlobalDatopusNamespace.push(p),d[p]=function(){"trackFeature"===arguments[0]&&(arguments.length<3&&Array.prototype.push.call(arguments,{}),arguments[2].sourceFeature=t.getItem(e),t.setItem(e,arguments[1])),(d[p].q=d[p].q||[]).push(arguments)},d[p].q=d[p].q||[],u=a.createElement("script"),s=a.getElementsByTagName("script")[0],u.async=1,u.src="https://datopus.blob.core.windows.net/scripts/ds.min.js",s.parentNode.insertBefore(u,s)}})(window,document,localStorage,0,"datopus");
 ```
 
 #### Configuring a tracker
 Configure an instance of the tracker by calling `newTracker` with your desired properties.
 
-```javascript javascript
+```javascript JS
 window.datopus('newTracker', 'www.tracked_domain.com')
 ```
 
@@ -34,13 +34,13 @@ Use the track method `trackFeature` to register activity on a feature.
 
 	- For example, you can register engagement on feature `CTA: Add To Cart` with next code
 
-	```javascript javascript
+	```javascript JS
 	window.datopus('trackFeature', 'CTA: Add To Cart');
 	```
 
 	- Or, you can add some context
 
-	```javascript javascript
+	```javascript JS
 	window.datopus('trackFeature', 'CTA: Add To Cart', {
 		user_subscription: 'Premium',
 		product_name: 'Product A',
