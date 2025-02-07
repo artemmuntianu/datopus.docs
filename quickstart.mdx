@@ -27,10 +27,18 @@ Configure an instance of the tracker by calling `newTracker` with your desired p
 window.datopus('newTracker', 'www.tracked_domain.com')
 ```
 
-where '`www.tracked_domain.com`' is one of domains you specified in the Datopus Dashboard.
+where '`www.tracked_domain.com`' is your domain name.
+
+<Tip>
+  Tip for B2B: instead of hardcoding a domain name, obtain it from a browser variable `window.location.hostname`.
+
+  ```javascript
+  window.datopus('newTracker', window.location.hostname)
+  ```
+</Tip>
 
 #### Using the tracker
 
-Tracker allows to track events automatically and/or manually. For auto-tracking it's enough to just add `[data-ds-feature=name]` attribute to HTML element representing a single feature.
+Tracker allows to track events automatically and manually. For auto-tracking it's enough to just add `[data-ds-feature=name]` attribute to a HTML element representing a single feature.
 
 Explore these articles to find more about [auto-tracking](/auto-tracking) and [manual-tracking](/manual-tracking).
