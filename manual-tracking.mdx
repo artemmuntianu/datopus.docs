@@ -1,0 +1,38 @@
+---
+title: "Manual Event Tracking"
+---
+
+#### Tracking an action
+
+Use the track method `trackAction` to manually register activity on a feature.
+
+For example, you can register engagement on feature `CTA: Add To Cart` in the next ways
+
+<AccordionGroup>
+  <Accordion title="Context-free" defaultOpen={true}>
+    ```javascript JS
+    window.datopus('trackAction', 'CTA: Add To Cart');
+    ```
+  </Accordion>
+
+  <Accordion title="Leverage standard Datopus params to convey action's relation to HTML tag" defaultOpen={true}>
+    ```javascript JS
+    window.datopus('trackAction', 'CTA: Add To Cart', {
+    	elemTag: 'button',
+    	elemName: 'add-to-cart-btn',
+    	elemText: 'Add To Cart',
+      elemEvent: 'click'
+    });
+    ```
+  </Accordion>
+
+  <Accordion title="Add your own context" defaultOpen={true}>
+    ```javascript JS
+    window.datopus('trackAction', 'CTA: Add To Cart', {
+    	user_subscription: 'Premium',
+    	product_name: 'Product A',
+    	product_category: 'Category B'
+    });
+    ```
+  </Accordion>
+</AccordionGroup>

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart'
-description: 'Follow these instructions to quickly implement a Datopus web tracker with default configuration.'
+title: "Quickstart"
+description: "Follow these instructions to quickly implement a Datopus web tracker with default configuration."
 ---
 
 Getting started with sending events using the JavaScript tracker is very similar to other web analytics vendors like Google Analytics, Adobe Analytics, etc.
@@ -8,10 +8,11 @@ Getting started with sending events using the JavaScript tracker is very similar
 The process involves the following high level steps:
 
 #### Adding the code snippet
+
 Add the code snippet below to your site, to all the pages you'd like to track.
 
 <Tip>
-Place the code snippet directly into your codebase. Typically this will be wrapped with `<script>` and placed into the `<head>` element of your page or in a similar suitable location if using a Single Page Application framework.
+  Place the code snippet directly into your codebase. Typically this will be wrapped with `<script>` and placed into the `<head>` element of your page or in a similar suitable location if using a Single Page Application framework.
 </Tip>
 
 ```javascript JS
@@ -19,31 +20,23 @@ Place the code snippet directly into your codebase. Typically this will be wrapp
 ```
 
 #### Configuring a tracker
+
 Configure an instance of the tracker by calling `newTracker` with your desired properties.
 
 ```javascript JS
 window.datopus('newTracker', 'www.tracked_domain.com')
 ```
 
-where `www.tracked_domain.com` is one of domains you specified in the Datopus Dashboard.
+where [`www.tracked_domain.com`](https://www.tracked_domain.com) is one of domains you specified in the Datopus Dashboard.
 
-<Tip>Tip for B2B: instead of hardcoding a domain name, obtain it from a browser variable `window.location.hostname`</Tip>
+<Tip />
 
-#### Tracking a feature
-Use the track method `trackFeature` to register activity on a feature.
+<CardGroup cols={2}>
+  <Card title="Manual Event Tracking">
+    [Here is a Link](quickstart)
+  </Card>
 
-	- For example, you can register engagement on feature `CTA: Add To Cart` with next code
-
-	```javascript JS
-	window.datopus('trackFeature', 'CTA: Add To Cart');
-	```
-
-	- Or, you can add some context
-
-	```javascript JS
-	window.datopus('trackFeature', 'CTA: Add To Cart', {
-		user_subscription: 'Premium',
-		product_name: 'Product A',
-		product_category: 'Category B'
-	});
-	```
+  <Card title="Manual Event Tracking">
+    [Here is a Link](quickstart)
+  </Card>
+</CardGroup>

@@ -22,8 +22,8 @@
     }
   ],
   "topbarCtaButton": {
-    "name": "Explore the Demo",
-    "url": "https://app.datopus.io/demo-use-cases"
+    "name": "Start Free Trial",
+    "url": "https://app.datopus.io"
   },
   "navigation": [
     {
@@ -31,6 +31,13 @@
       "pages": [
         "quickstart"
       ]
-    }
+    },
+    {
+      "group": "Event Tracking",
+      "pages": [
+        "auto-tracking",
+        "manual-tracking"
+      ]
+    }, 
   ]
 }
