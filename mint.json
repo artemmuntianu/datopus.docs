@@ -25,7 +25,6 @@
     "name": "Start Free Trial",
     "url": "https://app.datopus.io"
   },
-  {
     "navigation": {
       "groups": [
         {
@@ -38,5 +37,4 @@
         }
       ]
     }
-  }
 }
