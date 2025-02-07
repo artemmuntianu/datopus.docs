@@ -7,4 +7,10 @@ Any website or web app can be decomposed into a set of features. A feature can c
 
 Datopus watches for any activity happening inside a specific HTML element that marked with a special tag `[data-ds-feature=name]`. You should define this HTML element yourself, and it should represent a feature in your app or website.
 
+```
+<div data-ds-feature="Dashboard">
+  ...
+</div>
+```
+
 Tracker looks at all the smaller parts within a marked element and records what they do. These events include clicks, mouse movements, form submissions, or any other user interactions within that designated area.
