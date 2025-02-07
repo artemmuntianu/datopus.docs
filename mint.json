@@ -25,16 +25,16 @@
     "name": "Start Free Trial",
     "url": "https://app.datopus.io"
   },
-    "navigation": {
-      "groups": [
-        {
-          "group": "Getting Started",
-          "pages": ["quickstart"]
-        },
-        {
-          "group": "Event Tracking",
-          "pages": ["auto-tracking", "manual-tracking"]
-        }
-      ]
-    }
+  "navigation": [{
+    "groups": [
+      {
+        "group": "Getting Started",
+        "pages": ["quickstart"]
+      },
+      {
+        "group": "Event Tracking",
+        "pages": ["auto-tracking", "manual-tracking"]
+      }
+    ]
+  }]
 }
