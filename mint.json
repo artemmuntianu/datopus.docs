@@ -17,6 +17,10 @@
   },
   "topbarLinks": [
     {
+      "name": "Go to Datopus",
+      "url": "https://www.datopus.io"
+    },
+    {
       "name": "Support",
       "url": "mailto:artem@datopus.io"
     }
